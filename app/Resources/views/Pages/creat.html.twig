@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+    <body>
+    <form action="add" id="form" method="post" >
+      <div>
+          <label>Email address</label>
+          <input type="text" id="name" name="name" placeholder="Enter email">
+      </div>
+
+        <div>
+            <label>prix</label>
+            <input type="numerique" id="prix" name="prix" placeholder="Enter prix">
+            <label id="message"></label>
+        </div>
+
+        <div>
+            <label>description*</label>
+            <textarea id="description" name="description" placeholder="Enter description*"></textarea>
+        </div>
+
+
+      <button  id="button" class="btn btn-primary">Submit</button>
+ 		</form>
+    </body>
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+<script>
+$(document).ready(function(){
+
+
+		//console.log('data inserted1');
+
+
+	/*$('#button').click(function(){
+
+        var page= 'http://localhost:8000/add';
+	   	$('#form').attr('action', page);
+	   	$('#form').submit();
+
+
+	});*/
+
+    $("#prix").keyup(function(){
+
+        var prix= $('#prix').val();
+
+        $.ajax({
+            type:'get',
+            url:'http://localhost:8000/add/'+prix,
+            success: function(data){
+                console.log(data);
+                $('#message').html(data);
+            }
+        });
+
+        //$.get("http://localhost:8000/add/"+prix, function(data, status){
+          //  alert("Data: " + data + "\nStatus: " + status);
+        //});
+    });
+});
+</script>
+
+</html>

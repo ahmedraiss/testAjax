@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <header class="header">
+            <ul class="navi">
+                {% if is_granted('ROLE_USER') %}
+                {% else %}
+                    <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+                {% endif %}
+        </header>
+    </body>
+</html>

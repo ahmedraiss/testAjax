@@ -1,0 +1,20 @@
+produit_homepage:
+    path:     /
+    defaults: { _controller: ProduitBundle:Default:index }
+
+creat_page:
+     path: /a
+     defaults: { _controller: ProduitBundle:Default:create } 
+
+
+creat_page:
+     path: /admin
+     defaults: { _controller: ProduitBundle:Default:admin } 
+
+add_page:
+     path: /add/{name}/{prix}/{description}
+     defaults: { _controller: ProduitBundle:Default:addProduit }   
+
+prix_page:
+     path: /add/{prix}
+     defaults: { _controller: ProduitBundle:Default:prix }           
